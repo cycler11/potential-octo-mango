@@ -1,0 +1,14 @@
+digraph hello_world_program {
+    node [shape=box];
+
+    start [label="Start"];
+    main_start [label="main()"];
+    cout_print [label="std::cout << \"Hello, world!\""];
+    main_end [label="return 0"];
+    end [label="End"];
+
+    start -> main_start;
+    main_start -> cout_print;
+    cout_print -> main_end;
+    main_end -> end;
+}
