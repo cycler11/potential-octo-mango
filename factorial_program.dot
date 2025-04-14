@@ -1,0 +1,29 @@
+
+digraph factorial_program {
+    node [shape=box];
+
+    start [label="Start"];
+    main_start [label="main()"];
+    call_factorial [label="factorial(5)"];
+    factorial_entry [label="factorial(n)"];
+    check_n [label="if (n <= 1)"];
+    return_1 [label="return 1"];
+    recursive_call [label="return n * factorial(n - 1)"];
+    factorial_exit [label="return result"];
+    cout_print [label="std::cout << factorial(5)"];
+    main_end [label="return 0"];
+    end [label="End"];
+
+    start -> main_start;
+    main_start -> call_factorial;
+    call_factorial -> factorial_entry;
+    factorial_entry -> check_n;
+    check_n -> return_1 [label="true"];
+    check_n -> recursive_call [label="false"];
+    recursive_call -> factorial_entry [label="factorial(n-1)"];
+    return_1 -> factorial_exit;
+    factorial_entry -> factorial_exit [label="done"];
+    factorial_exit -> cout_print;
+    cout_print -> main_end;
+    main_end -> end;
+}
